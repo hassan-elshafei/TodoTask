@@ -1,0 +1,48 @@
+﻿@model TodoTask.Pages.TodoTask.TodoFormModel
+
+@Html.AntiForgeryToken()
+
+<form method="post" id="todoForm">
+    <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">@(Model.Id.HasValue ? "Edit Task" : "Add New Task")</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Todo.Title" class="form-label">Title *</label>
+            <input asp-for="Todo.Title" class="form-control" required />
+            <span asp-validation-for="Todo.Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Todo.Description" class="form-label">Description</label>
+            <textarea asp-for="Todo.Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Todo.Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Todo.Priority" class="form-label">Priority *</label>
+            <select asp-for="Todo.Priority" class="form-select" required>
+                <option value="">Select Priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            <span asp-validation-for="Todo.Priority" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Todo.DueDate" class="form-label">Due Date</label>
+            <input asp-for="Todo.DueDate" type="date" class="form-control" />
+            <span asp-validation-for="Todo.DueDate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> Save
+        </button>
+    </div>
+</form>
