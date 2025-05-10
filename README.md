@@ -102,14 +102,14 @@ A simple Todo management application built with ASP.NET Core and ABP Framework, 
 ### Prerequisites
 
 1. .NET 8 SDK  
-2. Node.js (for frontend dependencies)  
-3. SQL Server (Express or Developer edition recommended)  
+2. MVC 
+3. SQL Server
 
 ### Installation Steps
 
 1. **Clone the repository**:
    ```bash
-   git clone [repository-url]
+   git clone [[repository-url]](https://github.com/hassan-elshafei/TodoTask.git)
    cd TodoTask
    ```
 
@@ -138,7 +138,7 @@ A simple Todo management application built with ASP.NET Core and ABP Framework, 
 5. **Access the Application**:
    - Open your browser and go to:
      ```
-     https://localhost:5001
+     [https://localhost:44379/TodoTask]
      ```
    - If you're using a different port, check the terminal output after running the app for the correct URL.
 
@@ -185,4 +185,4 @@ If I had more time, I would:
 
 ## Contact
 
-For any questions about this implementation, please contact me at [your-email@example.com].
+For any questions about this implementation, please contact me at hsnelshaafeidev@gmail.com.
