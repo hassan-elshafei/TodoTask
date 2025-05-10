@@ -25,7 +25,6 @@ namespace TodoTask.Pages.TodoTask
 
         public List<SelectListItem> StatusOptions { get; } = new List<SelectListItem>
         {
-            new SelectListItem("All", ""),
             new SelectListItem("Pending", "Pending"),
             new SelectListItem("In Progress", "InProgress"),
             new SelectListItem("Completed", "Completed")
@@ -33,7 +32,6 @@ namespace TodoTask.Pages.TodoTask
 
         public List<SelectListItem> PriorityOptions { get; } = new List<SelectListItem>
         {
-            new SelectListItem("All", ""),
             new SelectListItem("High", "High"),
             new SelectListItem("Medium", "Medium"),
             new SelectListItem("Low", "Low")

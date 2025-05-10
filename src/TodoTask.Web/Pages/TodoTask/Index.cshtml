@@ -56,8 +56,8 @@
                         <tr>
                             <th>Title</th>
                             <th>Description</th>
-                            <th>Priority</th>
-                            <th>Status</th>
+                            <th class="priority-column">Priority</th>
+                            <th class="status-column">Status</th>
                             <th>Due Date</th>
                             <th>Actions</th>
                         </tr>
@@ -68,12 +68,12 @@
                             <tr id="task-@item.Id">
                                 <td>@item.Title</td>
                                 <td>@(item.Description?.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)</td>
-                                <td>
+                                <td class="priority-column">
                                     <span class="badge @GetPriorityBadgeClass(item.Priority)">
                                         @item.Priority
                                     </span>
                                 </td>
-                                <td>
+                                <td class="status-column">
                                     <span class="badge @GetStatusBadgeClass(item.Status)">
                                         @item.Status
                                     </span>
@@ -86,7 +86,7 @@
                                         </button>
                                         @if (item.Status != "Completed")
                                         {
-                                            <button class="btn btn-sm btn-success" onclick="confirmComplete('@item.Id')">
+                                            <button class="btn btn-sm btn-success complete-btn" onclick="confirmComplete('@item.Id')">
                                                 <i class="fas fa-check"></i> Complete
                                             </button>
                                         }
@@ -248,8 +248,13 @@
                             $(`#task-${currentId}`).remove();
                         } else if (currentAction === 'Complete') {
                             const row = $(`#task-${currentId}`);
-                            row.find('.badge').removeClass('bg-info bg-warning').addClass('bg-success').text('Completed');
-                            row.find('.btn-success').remove();
+                            // Only update status badge in status column
+                            row.find('.status-column .badge')
+                                .removeClass('bg-info bg-warning')
+                                .addClass('bg-success')
+                                .text('Completed');
+                            // Remove the Complete button
+                            row.find('.complete-btn').remove();
                         }
                     } else {
                         showError(response.error || `Failed to ${currentAction.toLowerCase()} task`);
