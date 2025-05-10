@@ -109,7 +109,7 @@ A simple Todo management application built with ASP.NET Core and ABP Framework, 
 
 1. **Clone the repository**:
    ```bash
-   git clone [https://github.com/hassan-elshafei/TodoTask.git]
+   git clone https://github.com/hassan-elshafei/TodoTask.git
    cd TodoTask
    ```
 
