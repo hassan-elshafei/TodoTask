@@ -23,6 +23,16 @@
         </div>
 
         <div class="mb-3">
+            <label asp-for="Todo.Status" class="form-label">Status *</label>
+            <select asp-for="Todo.Status" class="form-select" required>
+                <option value="Pending">Pending</option>
+                <option value="InProgress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <span asp-validation-for="Todo.Status" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
             <label asp-for="Todo.Priority" class="form-label">Priority *</label>
             <select asp-for="Todo.Priority" class="form-select" required>
                 <option value="">Select Priority</option>

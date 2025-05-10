@@ -49,7 +49,11 @@ namespace TodoTask.Pages.TodoTask
 
         public IActionResult OnGetCreateForm()
         {
-            return Partial("_TodoFormPartial", new CreateUpdateTodoDto());
+            return Partial("_TodoFormPartial", new TodoFormModel
+            {
+                Id = null,
+                Todo = new CreateUpdateTodoDto()
+            });
         }
 
         public async Task<IActionResult> OnGetEditFormAsync(Guid id)
@@ -57,17 +61,17 @@ namespace TodoTask.Pages.TodoTask
             try
             {
                 var todo = await _todoService.GetTodoAsync(id);
-                var model = new CreateUpdateTodoDto
-                {
-                    Title = todo.Title,
-                    Description = todo.Description,
-                    Priority = todo.Priority,
-                    DueDate = todo.DueDate
-                };
                 return Partial("_TodoFormPartial", new TodoFormModel
                 {
                     Id = id,
-                    Todo = model
+                    Todo = new CreateUpdateTodoDto
+                    {
+                        Title = todo.Title,
+                        Description = todo.Description,
+                        Priority = todo.Priority,
+                        Status = todo.Status,
+                        DueDate = todo.DueDate
+                    }
                 });
             }
             catch (Exception ex)
