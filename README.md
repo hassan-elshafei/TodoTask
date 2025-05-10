@@ -2,7 +2,7 @@
 
 ## About this solution
 
-This is a layered startup solution based on [Domain Driven Design (DDD)](https://docs.abp.io/en/abp/latest/Domain-Driven-Design) practises. All the fundamental ABP modules are already installed. 
+This is a layered startup solution based on [Domain Driven Design (DDD)](https://docs.abp.io/en/abp/latest/Domain-Driven-Design) practices. All the fundamental ABP modules are already installed. 
 
 ### Pre-requirements
 
@@ -11,9 +11,9 @@ This is a layered startup solution based on [Domain Driven Design (DDD)](https:/
 
 ### Configurations
 
-The solution comes with a default configuration that works out of the box. However, you may consider to change the following configuration before running your solution:
+The solution comes with a default configuration that works out of the box. However, you may consider changing the following configuration before running your solution:
 
-* Check the `ConnectionStrings` in `appsettings.json` files under the `TodoTask.Web` and `TodoTask.DbMigrator` projects and change it if you need.
+* Check the `ConnectionStrings` in `appsettings.json` files under the `TodoTask.Web` and `TodoTask.DbMigrator` projects and change it if needed.
 
 ### Before running the application
 
@@ -67,3 +67,122 @@ You can see the following resources to learn more about your solution and the AB
 * [Web Application Development Tutorial](https://docs.abp.io/en/abp/latest/Tutorials/Part-1)
 * [Application Startup Template Structure](https://docs.abp.io/en/abp/latest/Startup-Templates/Application)
 * [LeptonX Lite MVC UI](https://docs.abp.io/en/abp/latest/Themes/LeptonXLite/AspNetCore)
+
+
+# Todo Management Application
+
+A simple Todo management application built with ASP.NET Core and ABP Framework, implementing basic CRUD operations with status management.
+
+## Features Implemented
+
+✅ **Core Requirements:**
+- Complete CRUD operations for todos
+- List todos with filtering by status, priority, and date range
+- Mark todo as complete functionality
+- Basic validation (title required, valid dates)
+- Clean Bootstrap frontend with responsive design
+
+✅ **Bonus Features:**
+- Implemented using DDD principles
+- Added domain events (TodoCompletedEvent)
+- Additional filters (priority, date range)
+- Sorting options (by due date, priority, creation date)
+
+## Technologies Used
+
+- ASP.NET Core 8
+- ABP Framework
+- Entity Framework Core
+- Bootstrap 5
+- jQuery
+- SweetAlert2
+
+## Setup Instructions
+
+### Prerequisites
+
+1. .NET 8 SDK  
+2. Node.js (for frontend dependencies)  
+3. SQL Server (Express or Developer edition recommended)  
+
+### Installation Steps
+
+1. **Clone the repository**:
+   ```bash
+   git clone [repository-url]
+   cd TodoTask
+   ```
+
+2. **Database Configuration**:
+   - Open the `appsettings.json` file and update your connection string:
+     ```json
+     "ConnectionStrings": {
+       "Default": "Server=localhost;Database=TodoDb;Trusted_Connection=True;TrustServerCertificate=True"
+     }
+     ```
+   - Adjust the `Server` parameter if you're using a named instance or a remote server.
+   - For other database systems, change the provider and format the connection string accordingly.
+
+3. **Apply Database Migrations**:
+   - Run the following command to create the database schema:
+     ```bash
+     dotnet ef database update
+     ```
+
+4. **Run the Application**:
+   - Use the following command:
+     ```bash
+     dotnet run
+     ```
+
+5. **Access the Application**:
+   - Open your browser and go to:
+     ```
+     https://localhost:5001
+     ```
+   - If you're using a different port, check the terminal output after running the app for the correct URL.
+
+## What I Completed
+
+- Implemented all core requirements as specified
+- Added several bonus features including domain events and additional filters
+- Created a clean, responsive UI with Bootstrap
+- Implemented proper error handling and validation
+- Used ABP Framework effectively for application structure
+
+## Challenges Faced
+
+1. **Domain Events Implementation**: Understanding ABP's event bus system required some research, but I successfully implemented the `TodoCompletedEvent`.
+
+2. **AJAX Form Handling**: Ensuring proper anti-forgery token handling with AJAX requests took some debugging.
+
+3. **ABP Framework Learning Curve**: While I was familiar with .NET Core, ABP Framework's conventions required some initial learning.
+
+4. **Status Filtering**: Implementing the status filter with enum conversions between frontend and backend needed careful handling.
+
+## Time Spent
+
+- Approximately 6 hours total (including research and testing)
+- Breakdown:
+  - Backend implementation: 3 hours
+  - Frontend development: 2 hours
+  - Testing and debugging: 1 hour
+
+## Notes
+
+- The application uses ABP Framework's basic template which provided helpful scaffolding.
+- I focused on clean code organization and proper separation of concerns.
+- The solution includes both backend API and frontend UI components.
+
+## Future Improvements
+
+If I had more time, I would:
+1. Add unit tests  
+2. Implement pagination for large todo lists  
+3. Add user authentication  
+4. Enhance the UI with more interactive elements  
+5. Add export functionality for todos  
+
+## Contact
+
+For any questions about this implementation, please contact me at [your-email@example.com].
